@@ -28,7 +28,7 @@ export const Header: React.FC = () => {
           style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
           aria-label="COBRA Home"
         >
-          <img src="/assets/COBRA Logo.svg" alt="COBRA Logo" style={{ height: '48px' }} />
+          <img src="/assets/COBRA Logo.svg" alt="COBRA Logo" style={{ height: '54px' }} />
         </a>
       </div>
     </header>

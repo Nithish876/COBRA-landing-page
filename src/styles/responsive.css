@@ -193,7 +193,8 @@
     align-items: center;
   }
 
-  .vault-card-container svg {
+  .vault-card-container svg,
+  .hero-center-column img {
     width: min(260px, 66vw) !important;
     height: auto !important;
     max-width: 100%;

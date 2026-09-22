@@ -38,7 +38,7 @@ const NavButton: React.FC<NavButtonProps> = ({ id, label, icon, onClick, isActiv
             fontSize: '12px',
             fontWeight: 600,
             letterSpacing: '0.02em',
-            padding: '6px 12px',
+            padding: '2px 6px',
             borderRadius: '8px',
             whiteSpace: 'nowrap',
             boxShadow: '0 4px 16px rgba(0,0,0,0.25)',
@@ -90,18 +90,7 @@ const NavButton: React.FC<NavButtonProps> = ({ id, label, icon, onClick, isActiv
       >
         {icon}
         {/* Subtle active indicator dot (bare, no box) */}
-        {isActive && (
-          <span
-            style={{
-              position: 'absolute',
-              right: '-3px',
-              width: '5px',
-              height: '5px',
-              borderRadius: '50%',
-              backgroundColor: 'var(--accent-red)',
-            }}
-          />
-        )}
+       
       </button>
     </div>
   );
@@ -117,7 +106,7 @@ export const RightSideNav: React.FC = () => {
   return (
     <nav className="right-nav-rail" aria-label="Quick Actions">
       {/* Top Section */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <NavButton
           id="home"
           label="Home"
@@ -135,10 +124,10 @@ export const RightSideNav: React.FC = () => {
       </div>
 
       {/* Subtle Divider */}
-      <div style={{ height: '12px', width: '20px', borderBottom: '1px solid var(--border-subtle)', margin: '4px auto' }} />
+      <div style={{ height: '12px', width: '20px', borderBottom: '1px solid var(--border-subtle)', margin: '0px auto' }} />
 
       {/* Main Pages Section */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'center' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <NavButton
           id="services"
           label="Services"
