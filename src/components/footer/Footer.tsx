@@ -46,7 +46,7 @@ export const Footer: React.FC = () => {
           letterSpacing: '0.02em',
         }}
       >
-        © 2026 COBRA. All rights reserved.
+        © {new Date().getFullYear()} COBRA. All rights reserved.
       </div>
     </footer>
   );

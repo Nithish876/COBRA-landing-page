@@ -62,7 +62,7 @@ export const PrivacyPage: React.FC = () => {
               <span style={{ fontSize: '13px', fontWeight: 800, color: 'var(--accent-red)', letterSpacing: '0.08em' }}>
                 CLIENT-SIDE DERIVATION
               </span>
-              <span style={{ color: 'var(--accent-red)', fontSize: '18px', fontWeight: 800 }}>⚿</span>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'var(--accent-red)' }} />
             </div>
             <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '10px' }}>
               Zero-Knowledge Proofs
@@ -88,7 +88,7 @@ export const PrivacyPage: React.FC = () => {
               <span style={{ fontSize: '13px', fontWeight: 800, color: 'var(--accent-red)', letterSpacing: '0.08em' }}>
                 NO SURVEILLANCE
               </span>
-              <span style={{ color: 'var(--accent-red)', fontSize: '18px', fontWeight: 800 }}>🛡</span>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'var(--accent-red)' }} />
             </div>
             <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '10px' }}>
               No Advertisements • No Tracking
@@ -114,7 +114,7 @@ export const PrivacyPage: React.FC = () => {
               <span style={{ fontSize: '13px', fontWeight: 800, color: 'var(--accent-red)', letterSpacing: '0.08em' }}>
                 FUTURE-READY
               </span>
-              <span style={{ color: 'var(--accent-red)', fontSize: '18px', fontWeight: 800 }}>⚡</span>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'var(--accent-red)' }} />
             </div>
             <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '10px' }}>
               Quantum-Resilient Storage

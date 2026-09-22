@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   HomeNavIcon,
   UndoNavIcon,
-  SettingsNavIcon,
   PackageNavIcon,
   TrustBadgeNavIcon,
   ShieldLockNavIcon,
@@ -140,13 +139,6 @@ export const RightSideNav: React.FC = () => {
 
       {/* Main Pages Section */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'center' }}>
-        <NavButton
-          id="settings"
-          label="Theme & Settings"
-          icon={<SettingsNavIcon size={36} />}
-          isActive={currentPage === 'settings'}
-          onClick={() => handleNavClick('settings')}
-        />
         <NavButton
           id="services"
           label="Services"

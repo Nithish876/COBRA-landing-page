@@ -11,6 +11,7 @@
 
   .site-footer {
     padding: 0 28px;
+    box-shadow: rgba(0, 0, 0, 0.146) 4px 4px 8px;
   }
 
   .hero-main {
@@ -96,6 +97,7 @@
   .site-footer {
     padding: 12px 14px;
     flex-direction: column;
+    
     height: auto;
     gap: 8px;
     text-align: center;
@@ -195,5 +197,25 @@
     width: min(260px, 66vw) !important;
     height: auto !important;
     max-width: 100%;
+  }
+}
+
+/* Theme & Settings Page Responsive Enhancements */
+.theme-page-container {
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .settings-card {
+    padding: 16px !important;
+    border-radius: 14px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .settings-card {
+    padding: 14px 12px !important;
   }
 }

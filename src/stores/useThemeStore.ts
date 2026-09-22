@@ -3,73 +3,48 @@ import type { ThemeMode, EffectiveTheme, ThemeState } from '../types';
 
 const STORAGE_KEY = 'cobra_theme_mode';
 
-const getSystemTheme = (): EffectiveTheme => {
-  if (typeof window === 'undefined') return 'light';
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-};
-
-const resolveEffectiveTheme = (mode: ThemeMode): EffectiveTheme => {
-  if (mode === 'system') {
-    return getSystemTheme();
-  }
-  return mode;
-};
-
+// Dark theme is currently disabled as per project requirements
 const applyThemeToDOM = (theme: EffectiveTheme) => {
   if (typeof document === 'undefined') return;
   const root = document.documentElement;
   root.setAttribute('data-theme', theme);
-  if (theme === 'dark') {
-    root.classList.add('dark');
-    root.classList.remove('light');
-  } else {
-    root.classList.add('light');
-    root.classList.remove('dark');
-  }
+  root.classList.add('light');
+  root.classList.remove('dark');
 };
 
-export const useThemeStore = create<ThemeState>((set, get) => {
-  const savedMode = (typeof window !== 'undefined'
-    ? (localStorage.getItem(STORAGE_KEY) as ThemeMode) || 'system'
-    : 'system') as ThemeMode;
-
-  const initialEffective = resolveEffectiveTheme(savedMode);
-  applyThemeToDOM(initialEffective);
+export const useThemeStore = create<ThemeState>((set) => {
+  // Always lock to light mode for now
+  if (typeof window !== 'undefined') {
+    localStorage.setItem(STORAGE_KEY, 'light');
+  }
+  applyThemeToDOM('light');
 
   return {
-    mode: savedMode,
-    effectiveTheme: initialEffective,
+    mode: 'light',
+    effectiveTheme: 'light',
 
     setMode: (mode: ThemeMode) => {
-      if (typeof window !== 'undefined') {
-        localStorage.setItem(STORAGE_KEY, mode);
+      // Dark theme disabled: keep light mode
+      if (mode === 'dark') {
+        return;
       }
-      const effectiveTheme = resolveEffectiveTheme(mode);
-      applyThemeToDOM(effectiveTheme);
-      set({ mode, effectiveTheme });
+      if (typeof window !== 'undefined') {
+        localStorage.setItem(STORAGE_KEY, 'light');
+      }
+      applyThemeToDOM('light');
+      set({ mode: 'light', effectiveTheme: 'light' });
     },
 
     toggleTheme: () => {
-      const current = get().effectiveTheme;
-      const nextTheme: EffectiveTheme = current === 'dark' ? 'light' : 'dark';
-      get().setMode(nextTheme);
+      // Dark theme is disabled; toggle is a no-op
+      applyThemeToDOM('light');
+      set({ mode: 'light', effectiveTheme: 'light' });
     },
 
     initThemeListener: () => {
-      if (typeof window === 'undefined') return () => {};
-
-      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-      const handleSystemChange = (e: MediaQueryListEvent) => {
-        const currentMode = get().mode;
-        if (currentMode === 'system') {
-          const newEffective: EffectiveTheme = e.matches ? 'dark' : 'light';
-          applyThemeToDOM(newEffective);
-          set({ effectiveTheme: newEffective });
-        }
-      };
-
-      mediaQuery.addEventListener('change', handleSystemChange);
-      return () => mediaQuery.removeEventListener('change', handleSystemChange);
+      applyThemeToDOM('light');
+      return () => {};
     },
   };
 });
+
