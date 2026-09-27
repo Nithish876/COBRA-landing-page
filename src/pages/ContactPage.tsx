@@ -1,205 +1,205 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { MapView } from '../components/contact/MapView';
 
 export const ContactPage: React.FC = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    queryDetails: '',
+  });
+
+  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errorMsg) setErrorMsg(null);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.firstName.trim() || !formData.email.trim() || !formData.queryDetails.trim()) {
+      setErrorMsg('Please fill in your name, email, and query details.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    // Simulate submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitted(true);
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        queryDetails: '',
+      });
+    }, 600);
+  };
+
   return (
-    <main className="page-main-content" style={{ animation: 'fadeIn 0.3s ease-out' }}>
-      <div className="page-inner-container">
+    <div className="contact-section-container" id="contact">
+      {/* Section Title */}
+      <h2 className="contact-main-heading">
+        CONTACT US
+      </h2>
+
+      {/* Two Column Grid */}
+      <div className="contact-columns-grid">
         
-        {/* Page Header */}
-        <div style={{ marginBottom: '40px' }}>
-          <div style={{
-            display: 'inline-block',
-            fontSize: '12px',
-            fontWeight: 700,
-            letterSpacing: '0.12em',
-            color: 'var(--accent-red)',
-            textTransform: 'uppercase',
-            marginBottom: '8px',
-          }}>
-            Get in Touch
+        {/* Left Column: Interactive Map & Address */}
+        <div className="contact-map-column">
+          <div className="contact-map-wrapper">
+            <MapView />
           </div>
-          <h1 style={{
-            fontSize: 'clamp(28px, 4vw, 42px)',
-            fontWeight: 800,
-            color: 'var(--text-primary)',
-            letterSpacing: '-0.02em',
-            marginBottom: '14px',
-            lineHeight: 1.15,
-          }}>
-            Contact & Support
-          </h1>
-          <p style={{
-            fontSize: '16px',
-            color: 'var(--text-secondary)',
-            maxWidth: '820px',
-            lineHeight: 1.6,
-          }}>
-            Have questions regarding COBRA Cyber Vault, custom software development, or enterprise deployment? Reach out directly to our engineering team.
-          </p>
+          
+          <div className="contact-address-block">
+            <p className="contact-address-text">
+              CHENNAI, TN, INDIA - 600052.
+            </p>
+            <a href="mailto:contact@cobra.zone" className="contact-email-link">
+              contact@cobra.zone
+            </a>
+          </div>
         </div>
 
-        {/* Contact Channels Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '24px',
-          marginBottom: '36px',
-        }}>
-
-          <div style={{
-            backgroundColor: 'var(--bg-card)',
-            border: '1px solid var(--border-subtle)',
-            borderRadius: '16px',
-            padding: '28px',
-            boxShadow: 'var(--shadow-card)',
-          }}>
-            <div style={{
-              fontSize: '12px',
-              fontWeight: 800,
-              color: 'var(--accent-red)',
-              letterSpacing: '0.08em',
-              marginBottom: '8px',
-              textTransform: 'uppercase',
-            }}>
-              Direct Inquiry
+        {/* Right Column: Contact Form */}
+        <div className="contact-form-column">
+          {submitted ? (
+            <div className="contact-success-card">
+              <div className="success-icon-badge">✓</div>
+              <h3 style={{ fontSize: '20px', fontWeight: 700, color: 'var(--color-navy)', marginBottom: '8px' }}>
+                Thank You for Reaching Out
+              </h3>
+              <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '20px' }}>
+                Your inquiry has been received by our security engineering team. We will review your query details and respond promptly.
+              </p>
+              <button
+                type="button"
+                className="btn-submit-pill"
+                onClick={() => setSubmitted(false)}
+                style={{ padding: '8px 24px', fontSize: '13px' }}
+              >
+                Send Another Message
+              </button>
             </div>
-            <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '8px' }}>
-              Official Email
-            </h3>
-            <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '16px' }}>
-              For general inquiries, software project evaluations, and customer assistance.
-            </p>
-            <a
-              href="mailto:support@cobra.security"
-              style={{
-                display: 'inline-block',
-                fontSize: '14px',
-                fontWeight: 700,
-                color: 'var(--accent-red)',
-                textDecoration: 'none',
-              }}
-            >
-              support@cobra.security →
-            </a>
-          </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="contact-actual-form">
+              {/* Row 1: First Name & Last Name */}
+              <div className="form-two-col-row">
+                <div className="form-field-group">
+                  <label htmlFor="firstName" className="form-red-label">
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    placeholder="First Name"
+                    className="form-rounded-input"
+                    required
+                  />
+                </div>
 
-          <div style={{
-            backgroundColor: 'var(--bg-card)',
-            border: '1px solid var(--border-subtle)',
-            borderRadius: '16px',
-            padding: '28px',
-            boxShadow: 'var(--shadow-card)',
-          }}>
-            <div style={{
-              fontSize: '12px',
-              fontWeight: 800,
-              color: 'var(--accent-red)',
-              letterSpacing: '0.08em',
-              marginBottom: '8px',
-              textTransform: 'uppercase',
-            }}>
-              Instant Community
-            </div>
-            <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '8px' }}>
-              Telegram Channel
-            </h3>
-            <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '16px' }}>
-              Real-time project updates, release notes, and community announcements.
-            </p>
-            <a
-              href="https://t.me/CobraCyberVault"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-block',
-                fontSize: '14px',
-                fontWeight: 700,
-                color: 'var(--accent-red)',
-                textDecoration: 'none',
-              }}
-            >
-              @CobraCyberVault →
-            </a>
-          </div>
+                <div className="form-field-group">
+                  <label htmlFor="lastName" className="form-red-label">
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    placeholder="Last Name"
+                    className="form-rounded-input"
+                  />
+                </div>
+              </div>
 
-          <div style={{
-            backgroundColor: 'var(--bg-card)',
-            border: '1px solid var(--border-subtle)',
-            borderRadius: '16px',
-            padding: '28px',
-            boxShadow: 'var(--shadow-card)',
-          }}>
-            <div style={{
-              fontSize: '12px',
-              fontWeight: 800,
-              color: 'var(--accent-red)',
-              letterSpacing: '0.08em',
-              marginBottom: '8px',
-              textTransform: 'uppercase',
-            }}>
-              Enterprise Solutions
-            </div>
-            <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '8px' }}>
-              Enterprise & Custom Dev
-            </h3>
-            <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '16px' }}>
-              Discuss custom software development, cloud infrastructure, or enterprise cyber vault deployment.
-            </p>
-            <a
-              href="mailto:enterprise@cobra.security"
-              style={{
-                display: 'inline-block',
-                fontSize: '14px',
-                fontWeight: 700,
-                color: 'var(--accent-red)',
-                textDecoration: 'none',
-              }}
-            >
-              enterprise@cobra.security →
-            </a>
-          </div>
+              {/* Row 2: E-Mail & Mobile # */}
+              <div className="form-two-col-row">
+                <div className="form-field-group">
+                  <label htmlFor="email" className="form-red-label">
+                    E-Mail
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="E-Mail"
+                    className="form-rounded-input"
+                    required
+                  />
+                </div>
 
-        </div>
+                <div className="form-field-group">
+                  <label htmlFor="phone" className="form-red-label">
+                    Mobile #
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Mobile #"
+                    className="form-rounded-input"
+                  />
+                </div>
+              </div>
 
-        {/* PGP / Cryptographic Verification Card */}
-        <div style={{
-          backgroundColor: 'var(--bg-card)',
-          border: '1px solid var(--border-subtle)',
-          borderRadius: '16px',
-          padding: '28px',
-          boxShadow: 'var(--shadow-card)',
-        }}>
-          <h3 style={{
-            fontSize: '18px',
-            fontWeight: 800,
-            color: 'var(--text-primary)',
-            marginBottom: '8px',
-          }}>
-            Cryptographic Verification
-          </h3>
-          <p style={{
-            fontSize: '14px',
-            color: 'var(--text-secondary)',
-            marginBottom: '14px',
-            lineHeight: 1.6,
-          }}>
-            All security advisories and official software binaries released by COBRA are cryptographically signed with our master GPG key.
-          </p>
-          <div style={{
-            backgroundColor: 'var(--bg-page)',
-            border: '1px solid var(--border-subtle)',
-            borderRadius: '8px',
-            padding: '12px 16px',
-            fontFamily: 'monospace',
-            fontSize: '12.5px',
-            color: 'var(--text-muted)',
-            wordBreak: 'break-all',
-          }}>
-            PGP Fingerprint: 4E9B C281 91A0 F318 64B0 098A 24C1 889F 112E DB90
-          </div>
+              {/* Row 3: Query Details */}
+              <div className="form-field-group" style={{ width: '100%' }}>
+                <label
+                  htmlFor="queryDetails"
+                  className="form-query-label"
+                >
+                  Query Details
+                </label>
+                <textarea
+                  id="queryDetails"
+                  name="queryDetails"
+                  value={formData.queryDetails}
+                  onChange={handleChange}
+                  rows={5}
+                  placeholder="Describe your query or requirements..."
+                  className="form-rounded-textarea"
+                  required
+                />
+              </div>
+
+              {errorMsg && (
+                <div style={{ color: 'var(--accent-red)', fontSize: '13px', textAlign: 'center' }}>
+                  {errorMsg}
+                </div>
+              )}
+
+              {/* Row 4: Submit Button */}
+              <div className="form-submit-row">
+                <button
+                  type="submit"
+                  id="contact-submit-btn"
+                  className="btn-submit-pill"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'SUBMITTING...' : 'SUBMIT'}
+                </button>
+              </div>
+            </form>
+          )}
         </div>
 
       </div>
-    </main>
+    </div>
   );
 };

@@ -1,8 +1,6 @@
 import React from 'react';
-import { useNavStore } from '../../stores/useNavStore';
 
 export const SecurityPitch: React.FC = () => {
-  const setCurrentPage = useNavStore((state) => state.setCurrentPage);
 
   return (
     <div className="hero-right-column" id="security-pitch">
@@ -29,7 +27,13 @@ export const SecurityPitch: React.FC = () => {
       <button
         id="explore-cobra-btn"
         className="btn-explore"
-        onClick={() => setCurrentPage('privacy')}
+        onClick={(e) => {
+          e.preventDefault();
+          const target = document.getElementById('services') || document.getElementById('contact');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}
         aria-label="Explore COBRA Cyber Vault"
       >
         <span>Explore COBRA</span>

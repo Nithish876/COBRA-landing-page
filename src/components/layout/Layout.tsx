@@ -12,7 +12,9 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="app-container">
       <Header />
       <RightSideNav />
-      {children}
+      <main className="main-content-flow">
+        {children}
+      </main>
       <Footer />
     </div>
   );
