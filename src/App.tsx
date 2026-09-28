@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Layout } from './components/layout/Layout';
 import { HeroSection } from './components/hero/HeroSection';
 import { ServicesPage } from './pages/ServicesPage';
-import { ModulesPage } from './pages/ModulesPage';
+import { ProductsPage } from './pages/ProductsPage';
 import { SecuritySection } from './pages/SecuritySection';
 import { PrivacyPage } from './pages/PrivacyPage';
 import { AboutPage } from './pages/AboutPage';
@@ -29,9 +29,9 @@ export const App: React.FC = () => {
         <ServicesPage />
       </section>
 
-      {/* 3. Vault Modules Section */}
-      <section id="modules" className="page-section">
-        <ModulesPage />
+      {/* 3. Products Section */}
+      <section id="products" className="page-section">
+        <ProductsPage />
       </section>
 
       {/* 4. Cyber Vault Security Section */}

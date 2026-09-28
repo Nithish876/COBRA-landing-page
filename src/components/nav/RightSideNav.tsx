@@ -23,40 +23,11 @@ const NavButton: React.FC<NavButtonProps> = ({ id, label, icon, onClick, isActiv
 
   return (
     <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
-      {/* Tooltip */}
+      {/* Tooltip with Right-to-Left Reveal Animation */}
       {isHovered && (
-        <div
-          style={{
-            position: 'absolute',
-            right: 'calc(100% + 10px)',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            backgroundColor: '#022A48',
-            color: '#FFFFFF',
-            fontSize: '11.5px',
-            fontWeight: 600,
-            letterSpacing: '0.02em',
-            padding: '4px 8px',
-            borderRadius: '6px',
-            whiteSpace: 'nowrap',
-            boxShadow: '0 4px 14px rgba(0,0,0,0.2)',
-            pointerEvents: 'none',
-            zIndex: 150,
-          }}
-        >
-          {label}
-          {/* Arrow */}
-          <div
-            style={{
-              position: 'absolute',
-              right: '-3px',
-              top: '50%',
-              transform: 'translateY(-50%) rotate(45deg)',
-              width: '6px',
-              height: '6px',
-              backgroundColor: '#022A48',
-            }}
-          />
+        <div className="nav-tooltip-container" role="tooltip">
+          <span className="nav-tooltip-text">{label}</span>
+          <div className="nav-tooltip-arrow" />
         </div>
       )}
 
@@ -123,7 +94,7 @@ export const RightSideNav: React.FC = () => {
 
   // Observe which section is currently centered in viewport
   useEffect(() => {
-    const sectionIds = ['home', 'services', 'modules', 'security', 'privacy', 'about', 'contact'];
+    const sectionIds = ['home', 'services', 'products', 'modules', 'security', 'privacy', 'about', 'contact'];
     
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 3;
@@ -177,13 +148,13 @@ export const RightSideNav: React.FC = () => {
           onClick={() => scrollToSection('services')}
         />
 
-        {/* 4. Vault Modules */}
+        {/* 4. Products */}
         <NavButton
-          id="package"
-          label="Vault Modules"
+          id="products"
+          label="Products"
           icon={<PackageNavIcon size={30} />}
-          isActive={activeSection === 'modules'}
-          onClick={() => scrollToSection('modules')}
+          isActive={activeSection === 'products' || activeSection === 'modules'}
+          onClick={() => scrollToSection('products')}
         />
 
         {/* 5. Cyber Vault Security */}
