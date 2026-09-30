@@ -8,33 +8,42 @@ export const useNavStore = create<NavState>((set, get) => ({
   activeModal: null,
   isMobileMenuOpen: false,
 
-  setCurrentPage: (page: PageType) => {
+  setCurrentPage: (page: PageType, pushToHistory = true) => {
     const { currentPage, pageHistory } = get();
     if (currentPage === page) return;
+    const newHistory = pushToHistory ? [...pageHistory, page] : pageHistory;
     set({
       currentPage: page,
       activeItem: page,
-      pageHistory: [...pageHistory, page],
+      pageHistory: newHistory,
     });
+    if (window.location.hash.replace('#', '') !== page) {
+      window.location.hash = page;
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   },
 
   goBack: () => {
     const { pageHistory } = get();
+    let targetPage: PageType = 'home';
+    let newHistory: PageType[] = ['home'];
+
     if (pageHistory.length > 1) {
-      const newHistory = [...pageHistory];
+      newHistory = [...pageHistory];
       newHistory.pop(); // remove current page
-      const previousPage = newHistory[newHistory.length - 1];
-      set({
-        currentPage: previousPage,
-        activeItem: previousPage,
-        pageHistory: newHistory,
-      });
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      set({ currentPage: 'home', activeItem: 'home' });
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      targetPage = newHistory[newHistory.length - 1];
     }
+
+    set({
+      currentPage: targetPage,
+      activeItem: targetPage,
+      pageHistory: newHistory,
+    });
+
+    if (window.location.hash.replace('#', '') !== targetPage) {
+      window.location.hash = targetPage;
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   },
 
   setActiveItem: (item: string) => set({ activeItem: item }),

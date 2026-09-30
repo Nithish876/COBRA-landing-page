@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 export interface ServiceDetail {
   title: string;
@@ -26,15 +27,21 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
       setIsRendered(true);
       setIsClosing(false);
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
     } else if (isRendered) {
       setIsClosing(true);
       const timer = setTimeout(() => {
         setIsRendered(false);
         setIsClosing(false);
-        document.body.style.overflow = 'unset';
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
       }, 260); // Match exit animation duration
       return () => clearTimeout(timer);
     }
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
   }, [isOpen, isRendered]);
 
   useEffect(() => {
@@ -53,13 +60,14 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
       onClose();
       setIsRendered(false);
       setIsClosing(false);
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }, 250);
   };
 
   if (!isRendered || !service) return null;
 
-  return (
+  return createPortal(
     <div
       className={`service-modal-backdrop ${isClosing ? 'modal-backdrop-exit' : 'modal-backdrop-enter'}`}
       onClick={handleClose}
@@ -148,6 +156,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };

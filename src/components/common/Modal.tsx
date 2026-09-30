@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 interface ModalProps {
   isOpen: boolean;
@@ -15,16 +16,18 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }
     if (isOpen) {
       document.addEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
     }
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     };
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
-  return (
+  return createPortal(
     <div
       style={{
         position: 'fixed',
@@ -92,6 +95,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }
 
         <div>{children}</div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };

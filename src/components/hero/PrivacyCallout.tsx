@@ -16,7 +16,7 @@ export const PrivacyCallout: React.FC = () => {
         <span>COBRA NEVER</span>
         <br />
         <span>
-          SEES, READS <span className="accent-or" style={{ color: 'var(--accent-red)', fontStyle: 'normal', fontWeight: 800 }}>OR</span>
+          SEES, READS <span className="accent-or" style={{ color: 'var(--accent-red)', fontStyle: 'normal', fontWeight: 600 }}>OR</span>
         </span>
         <br />
         <span>ACCESSES YOUR DATA.</span>

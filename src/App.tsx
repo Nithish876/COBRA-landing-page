@@ -14,7 +14,6 @@ import type { PageType } from './types';
 export const App: React.FC = () => {
   const initThemeListener = useThemeStore((state) => state.initThemeListener);
   const currentPage = useNavStore((state) => state.currentPage);
-  const setCurrentPage = useNavStore((state) => state.setCurrentPage);
 
   useEffect(() => {
     const cleanup = initThemeListener();
@@ -24,17 +23,25 @@ export const App: React.FC = () => {
   // Sync with URL hash on initial load and on hashchange
   useEffect(() => {
     const handleHash = () => {
-      const hash = window.location.hash.replace('#', '') as PageType;
+      const hash = (window.location.hash.replace('#', '') || 'home') as PageType;
       const validPages: PageType[] = ['home', 'services', 'products', 'security', 'privacy', 'about', 'contact'];
-      if (validPages.includes(hash) && hash !== currentPage) {
-        setCurrentPage(hash);
+      if (validPages.includes(hash)) {
+        const state = useNavStore.getState();
+        if (hash !== state.currentPage) {
+          const history = state.pageHistory;
+          if (history.length > 1 && history[history.length - 2] === hash) {
+            state.goBack();
+          } else {
+            state.setCurrentPage(hash);
+          }
+        }
       }
     };
 
     handleHash();
     window.addEventListener('hashchange', handleHash);
     return () => window.removeEventListener('hashchange', handleHash);
-  }, [setCurrentPage, currentPage]);
+  }, []);
 
   // Render the current page separately
   const renderCurrentPage = () => {

@@ -42,6 +42,11 @@
     width: 100%;
   }
 
+  .hero-vault-logo {
+    max-width: clamp(220px, 50vw, 320px) !important;
+    max-height: clamp(260px, 45vh, 420px) !important;
+  }
+
   .hero-right-column {
     order: 3;
     align-items: center;
@@ -158,6 +163,26 @@
     font-size: clamp(26px, 7.2vw, 40px) !important;
   }
 
+  .hero-vault-logo {
+    max-width: clamp(190px, 68vw, 260px) !important;
+    max-height: clamp(230px, 38vh, 340px) !important;
+  }
+
+  .service-card-body {
+    grid-template-columns: 56px 1fr !important;
+    gap: 14px !important;
+  }
+
+  .service-card-icon-col {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  .service-card-svg-icon {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
   .about-page-wrapper,
   .privacy-page-wrapper,
   .security-page-wrapper,
@@ -165,5 +190,11 @@
   .products-page-wrapper,
   .contact-section-container {
     padding: 16px 12px 24px 12px !important;
+  }
+}
+
+@media (max-height: 720px) {
+  .hero-vault-logo {
+    max-height: clamp(240px, 50vh, 380px) !important;
   }
 }

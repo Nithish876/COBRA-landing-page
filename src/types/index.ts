@@ -34,7 +34,7 @@ export interface NavState {
   pageHistory: PageType[];
   activeModal: ActiveModal;
   isMobileMenuOpen: boolean;
-  setCurrentPage: (page: PageType) => void;
+  setCurrentPage: (page: PageType, pushToHistory?: boolean) => void;
   goBack: () => void;
   setActiveItem: (item: string) => void;
   openModal: (modal: ActiveModal) => void;

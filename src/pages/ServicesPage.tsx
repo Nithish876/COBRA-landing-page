@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
 import {
-  MobileAppIcon,
   SoftwareDevIcon,
   WebsiteDevIcon,
-  UiUxDesignIcon,
-  ItSupportIcon,
-  CloudSolutionsIcon,
-  NetworkInfrastructureIcon,
-  CybersecurityIcon,
-  BusinessAutomationIcon,
-  DigitalTransformationIcon,
 } from '../components/icons/ServiceIcons';
 import { ServiceDetailModal, type ServiceDetail } from '../components/common/ServiceDetailModal';
 
@@ -264,7 +256,13 @@ const serviceCardPreviews = [
   {
     index: 0,
     title: "MOBILE APP DEVELOPMENT",
-    icon: <MobileAppIcon size={56} />,
+    icon: (
+      <img
+        src="/assets/Service_Mobile _app.svg"
+        alt="Mobile App Development Icon"
+        className="service-card-svg-icon"
+      />
+    ),
     description: "COBRA develops mobile applications designed around specific user and business requirements. We can work on applications for Android, iOS or cross-platform environments. Mobile applications can be designed for customer services, business operations, productivity or specialised requirements.",
   },
   {
@@ -282,43 +280,85 @@ const serviceCardPreviews = [
   {
     index: 3,
     title: "UI/UX DESIGN & DIGITAL EXPERIENCE",
-    icon: <UiUxDesignIcon size={56} />,
+    icon: (
+      <img
+        src="/assets/Service_UIUX.svg"
+        alt="UI/UX Design & Digital Experience Icon"
+        className="service-card-svg-icon"
+      />
+    ),
     description: "COBRA creates user interface and user experience solutions focused on clarity, usability and purposeful interaction. UI design concerns how digital screens, controls, layouts and visual elements are presented. UX design considers how users move through a system and complete their tasks.",
   },
   {
     index: 4,
     title: "IT SUPPORT & TECHNICAL SOLUTIONS",
-    icon: <ItSupportIcon size={56} />,
+    icon: (
+      <img
+        src="/assets/Service_IT_Support.svg"
+        alt="IT Support & Technical Solutions Icon"
+        className="service-card-svg-icon"
+      />
+    ),
     description: "COBRA provides technology guidance and technical solutions for common business and digital requirements. IT support may involve software issues, system configuration, application problems or technology-related workflow challenges. We first identify the nature of the problem before solving it.",
   },
   {
     index: 5,
     title: "CLOUD COMPUTING & DATA SOLUTIONS",
-    icon: <CloudSolutionsIcon size={56} />,
+    icon: (
+      <img
+        src="/assets/Service_Cloud.svg"
+        alt="Cloud Computing & Data Solutions Icon"
+        className="service-card-svg-icon"
+      />
+    ),
     description: "COBRA helps businesses understand and implement suitable cloud-based technology solutions. Cloud computing can provide access to computing resources, applications and storage without relying entirely on local infrastructure. Solutions may support hosting, databases, backups and services.",
   },
   {
     index: 6,
     title: "NETWORK & INFRASTRUCTURE SOLUTIONS",
-    icon: <NetworkInfrastructureIcon size={56} />,
+    icon: (
+      <img
+        src="/assets/Service_Network.svg"
+        alt="Network & Infrastructure Solutions Icon"
+        className="service-card-svg-icon"
+      />
+    ),
     description: "COBRA provides technical guidance for network and digital infrastructure requirements. Reliable infrastructure provides the foundation for computers, applications, devices and business communication. Network requirements may include local connectivity, internet access, and sharing.",
   },
   {
     index: 7,
     title: "CYBERSECURITY & DATA PROTECTION",
-    icon: <CybersecurityIcon size={56} />,
+    icon: (
+      <img
+        src="/assets/Service_Cybersecurity.svg"
+        alt="Cybersecurity & Data Protection Icon"
+        className="service-card-svg-icon"
+      />
+    ),
     description: "COBRA treats cybersecurity and data protection as important considerations in modern digital systems. Cybersecurity involves protecting systems, applications, devices and information from unauthorised access. Security requirements should be considered during system design.",
   },
   {
     index: 8,
     title: "BUSINESS AUTOMATION & SYSTEM INTEGRATION",
-    icon: <BusinessAutomationIcon size={56} />,
+    icon: (
+      <img
+        src="/assets/Service_Business.svg"
+        alt="Business Automation & System Integration Icon"
+        className="service-card-svg-icon"
+      />
+    ),
     description: "COBRA helps businesses explore opportunities to simplify repetitive digital processes through automation. Business automation can reduce unnecessary manual steps and improve consistency in suitable workflows. Automated workflows can be designed for data entry, notifications and reporting.",
   },
   {
     index: 9,
     title: "DIGITAL TRANSFORMATION & TECHNOLOGY CONSULTING",
-    icon: <DigitalTransformationIcon size={56} />,
+    icon: (
+      <img
+        src="/assets/Service_Digital.svg"
+        alt="Digital Transformation & Technology Consulting Icon"
+        className="service-card-svg-icon"
+      />
+    ),
     description: "COBRA provides technology consultation for businesses planning new or improved digital systems. Digital transformation involves using technology to improve how an organisation operates, communicates or delivers its services. Successful transformation begins with understanding the process.",
   },
 ];

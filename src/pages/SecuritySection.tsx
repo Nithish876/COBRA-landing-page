@@ -57,7 +57,7 @@ export const SecuritySection: React.FC = () => {
                   <span className="point-title-red">Data Encryption</span> — Protecting sensitive information through strong encryption technologies.
                 </li>
                 <li>
-                  <span className="point-title-red">Secure Authentication</span> — Using authentication and access control mechanisms to prevent unauthorized access.
+                  <span className="point-title-red">Secure Authentication</span> — Using authentication and access-control mechanisms to prevent unauthorized access.
                 </li>
                 <li>
                   <span className="point-title-red">Access Control</span> — Limiting access to information and systems based on legitimate requirements.
@@ -123,7 +123,7 @@ export const SecuritySection: React.FC = () => {
                   <span className="point-title-red">Application Security</span> — Applications are developed with attention to secure coding, input handling, access control, data protection, and potential attack surfaces.
                 </li>
                 <li>
-                  <span className="point-title-red">Device & Environment Security</span> — Where applicable, security mechanisms at the device, operating system, and environment levels provide additional protection.
+                  <span className="point-title-red">Device & Environment Security</span> — Where applicable, security mechanisms at the device, operating-system, and environment levels provide additional protection.
                 </li>
                 <li>
                   <span className="point-title-red">Operational Security</span> — Security does not end when a product is released. We review, maintain, update, and improve our security practices as requirements and threats change.
@@ -133,7 +133,7 @@ export const SecuritySection: React.FC = () => {
 
             {/* Red Bottom Banner */}
             <div className="security-navy-banner-red">
-              No single security measure can address every threat. That is why COBRA combines multiple layers of protection to create a stronger overall security posture.
+              No single security measure can address every threat. That's why COBRA combines multiple layers of protection to create a stronger overall security posture.
             </div>
           </div>
 
