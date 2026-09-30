@@ -24,13 +24,13 @@ export const AboutPage: React.FC = () => {
         {/* 1. Foundation White Card */}
         <div className="about-foundation-card">
           <h2 className="about-foundation-title">
-            TECHNOLOGY BUILT WITH PURPOSE. <span className="text-red">SECURITY BUILT ON TRUST.</span>
+            TECHNOLOGY BUILT WITH PURPOSE. <span className="text-red">SECURITY BUILT WITH TRUST.</span>
           </h2>
           <p className="about-foundation-text">
-            At <strong>COBRA</strong>, we believe that technology should be built with clarity, purpose, and integrity. In a digital environment where data and digital systems touch nearly every aspect of business and life, users deserve solutions that are reliable, practical, and secure. We focus on developing software, applications, platforms, and security solutions that help users solve problems, automate workflows, and operate with greater confidence.
+            Founded on 13 June 2023 by Mr. BABKRISH, COBRA is a Tamil Nadu-based technology company serving clients and organizations across the world. COBRA was established with a clear purpose: to create reliable technology, deliver meaningful digital solutions, and make security an essential part of everything we build. Our core operations focus on Technology and Cyber Security, supported by expertise in mobile application development, software and application development, website development, data and cloud services.
           </p>
           <p className="about-foundation-text">
-            Our philosophy is simple: technology should serve users, not exploit them. Privacy and security should not be afterthoughts — they should be foundational.
+            At COBRA, we believe technology should not simply work — it should be secure, dependable, scalable, and built around the real needs of the people who use it.
           </p>
         </div>
 
@@ -39,7 +39,6 @@ export const AboutPage: React.FC = () => {
 
           {/* Left Column: Mission */}
           <div className="about-card-with-badge-col">
-            {/* Top Mission Floating Badge */}
             <div className="about-floating-badge">
               <div className="about-badge-icon-box">
                 <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#ED3237" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -53,7 +52,6 @@ export const AboutPage: React.FC = () => {
               <span className="about-badge-label">MISSION</span>
             </div>
 
-            {/* Navy Card: Mission */}
             <div className="about-navy-card">
               <div className="about-navy-content">
                 <h3 className="about-navy-title">
@@ -62,19 +60,17 @@ export const AboutPage: React.FC = () => {
                   <span className="text-red">SMARTER</span> DIGITAL FUTURE
                 </h3>
                 <p className="about-navy-text">
-                  Our mission is to build robust, practical technology solutions that empower users while protecting their privacy and ensuring security across their digital operations.
+                  Our vision is to become a trusted technology and cyber security company known for building secure, practical, innovative, and dependable digital solutions.
                 </p>
                 <p className="about-navy-text">
-                  We strive to develop software, applications, and tools that simplify workflows, solve problems, and help businesses operate more effectively without compromising security or user privacy.
+                  We aim to contribute to a future where individuals, businesses, organizations, and institutions can confidently adopt technology without compromising security, privacy, reliability, or usability.
                 </p>
                 <p className="about-navy-text">
-                  COBRA aims to be a trusted technology partner for users and businesses who value privacy-conscious development, secure architecture, and dependable digital systems.
+                  COBRA continuously works toward developing technology that creates long-term value rather than short-term solutions, while making strong security a fundamental part of the digital experience.
                 </p>
 
-                {/* Hands Holding Shield Graphic */}
                 <div className="about-shield-graphic-container">
                   <svg width="140" height="100" viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    {/* Glowing Red Shield */}
                     <g transform="translate(42, 10)">
                       <path
                         d="M28 0L56 12V32C56 50 44 64 28 70C12 64 0 50 0 32V12L28 0Z"
@@ -82,7 +78,6 @@ export const AboutPage: React.FC = () => {
                         stroke="#FFFFFF"
                         strokeWidth="2.5"
                       />
-                      {/* Checkmark */}
                       <path
                         d="M18 34L25 41L38 28"
                         stroke="#FFFFFF"
@@ -91,7 +86,6 @@ export const AboutPage: React.FC = () => {
                         strokeLinejoin="round"
                       />
                     </g>
-                    {/* Supporting Hands Silhouette */}
                     <path
                       d="M15 75C25 72 38 78 48 85C42 88 30 88 20 85L15 75Z"
                       fill="#FFFFFF"
@@ -114,7 +108,6 @@ export const AboutPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Red Bottom Button Bar */}
               <div className="about-navy-bottom-bar">
                 <span className="about-pill-mini-button"></span>
               </div>
@@ -123,7 +116,6 @@ export const AboutPage: React.FC = () => {
 
           {/* Right Column: Vision */}
           <div className="about-card-with-badge-col">
-            {/* Top Vision Floating Badge */}
             <div className="about-floating-badge">
               <div className="about-badge-icon-box">
                 <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#ED3237" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -137,7 +129,6 @@ export const AboutPage: React.FC = () => {
               <span className="about-badge-label">VISION</span>
             </div>
 
-            {/* Navy Card: Vision */}
             <div className="about-navy-card">
               <div className="about-navy-content">
                 <h3 className="about-navy-title">
@@ -146,40 +137,42 @@ export const AboutPage: React.FC = () => {
                   <span className="text-red">TECHNOLOGY</span>
                 </h3>
                 <p className="about-navy-text">
-                  We envision a digital world where technology serves users with clarity, transparency, and integrity, and where security and privacy are standard expectations rather than optional additions.
+                  Our mission is to understand real-world challenges and transform them into effective, secure, and user-focused technology solutions.
                 </p>
 
                 <div className="about-approach-subheading">
-                  Our Approach Includes:
+                  We are committed to:
                 </div>
 
                 <ul className="about-approach-bullets">
                   <li>
-                    <span className="bullet-title-red">User-First Design</span> — Ensuring ease of use and accessibility.
+                    <span className="bullet-title-red">Developing technology</span> with security at its foundation.
                   </li>
                   <li>
-                    <span className="bullet-title-red">Security-First Thinking</span> — Building protection into software from day one.
+                    <span className="bullet-title-red">Delivering reliable</span> software, applications, websites, and digital solutions.
                   </li>
                   <li>
-                    <span className="bullet-title-red">Purpose-Driven Development</span> — Solving real problems with purposeful technology.
+                    <span className="bullet-title-red">Providing practical</span> IT solutions for individuals, businesses, organizations, and institutions.
                   </li>
                   <li>
-                    <span className="bullet-title-red">Transparent Communication</span> — Clear and straightforward interactions with users and clients.
+                    <span className="bullet-title-red">Continuously improving</span> our products through innovation and customer feedback.
                   </li>
                   <li>
-                    <span className="bullet-title-red">Reliability & Quality</span> — Building solutions that perform consistently and dependably.
+                    <span className="bullet-title-red">Delivering projects</span> within the agreed requirements and deadlines.
                   </li>
                   <li>
-                    <span className="bullet-title-red">Long-Term Support</span> — Standing behind what we build with ongoing care and updates.
+                    <span className="bullet-title-red">Maintaining long-term</span> relationships with our customers beyond project completion.
+                  </li>
+                  <li>
+                    <span className="bullet-title-red">Providing professional</span> support and maintenance to ensure continued stability.
                   </li>
                 </ul>
 
-                <p className="about-navy-text" style={{ marginTop: '16px' }}>
-                  We believe that technology should be an asset that empowers users, not a liability that complicates their lives.
+                <p className="about-navy-text" style={{ marginTop: '16px', fontWeight: 600, color: '#FFFFFF' }}>
+                  Making quality technology accessible through competitive and transparent pricing.
                 </p>
               </div>
 
-              {/* Red Bottom Button Bar */}
               <div className="about-navy-bottom-bar">
                 <span className="about-pill-mini-button"></span>
               </div>
@@ -195,9 +188,8 @@ export const AboutPage: React.FC = () => {
 
         <div className="about-security-card">
           <div className="about-security-card-grid">
-            {/* Left Column: Cyber Vault Card */}
             <div className="about-vault-logo-col">
-              <div className="hero-center-column" style={{ width: '100%', maxWidth: '280px' }}>
+              <div className="hero-center-column" style={{ width: '100%', maxWidth: 'clamp(280px, 24vw, 380px)' }}>
                 <img
                   src={cobraCyberVaultLogo}
                   alt="COBRA Cyber Vault"
@@ -207,19 +199,18 @@ export const AboutPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column: Security Principles Text */}
             <div className="about-vault-text-col">
               <p className="about-vault-desc-para">
-                Security is not something we consider only after a product is developed. It is part of the way we approach technology from the beginning.
+                Security is not something we consider only after a product is developed. It is part of how we approach technology from the beginning.
               </p>
               <p className="about-vault-desc-para">
                 <strong className="text-red">COBRA Cyber Vault</strong> is our dedicated security architecture and protection layer, designed to strengthen the security of COBRA's own products and services.
               </p>
               <p className="about-vault-desc-para">
-                It represents our approach to protecting technology through multiple layers of consideration rather than depending on a single protection mechanism.
+                It represents our approach to protecting technology through multiple security considerations rather than depending on a single protective mechanism.
               </p>
               <p className="about-vault-desc-para">
-                From application security and data protection to access control and secure handling of information, we continually work to strengthen our security practices as technologies and threats evolve.
+                From application security and data protection to access control and secure handling of information, we continuously work to strengthen our security practices as technology and threats evolve.
               </p>
             </div>
           </div>
@@ -241,18 +232,16 @@ export const AboutPage: React.FC = () => {
 
         {/* 5. Customer Reach Block (Circular Logo + Navy Card) */}
         <div className="about-customer-reach-block">
-          {/* Left Circular Badge */}
           <div className="about-circle-logo-badge">
             <img src={cobraLogo} alt="COBRA Logo" style={{ width: '85%', height: 'auto' }} />
           </div>
 
-          {/* Right Navy Card */}
           <div className="about-customer-navy-card">
             <h4 className="about-customer-lead">
               <strong>COBRA</strong> serves a wide range of customers — from individual users and micro businesses to small and medium organizations and large corporate environments.
             </h4>
             <p className="about-customer-body">
-              We also undertake technology solutions and services for projects requiring professional and structured IT capabilities, including eligible government and institutional environments.
+              We also undertake technology solutions and services for projects requiring professional and structured IT capabilities, including eligible government and institutional requirements.
             </p>
           </div>
         </div>
@@ -276,9 +265,9 @@ export const AboutPage: React.FC = () => {
             <div className="about-diff-item">
               <span className="diff-bullet-diamond">◆</span>
               <div>
-                <strong className="diff-name">Security-Minded Approach:</strong>
+                <strong className="diff-name">Security-Focused Technology</strong>
                 <p className="diff-desc">
-                  Security and privacy are prioritized from the start, not added as an afterthought or optional feature.
+                  Security is considered throughout our development and service approach, supported by our COBRA Cyber Vault security architecture.
                 </p>
               </div>
             </div>
@@ -286,9 +275,9 @@ export const AboutPage: React.FC = () => {
             <div className="about-diff-item">
               <span className="diff-bullet-diamond">◆</span>
               <div>
-                <strong className="diff-name">Transparent Working:</strong>
+                <strong className="diff-name">Competitive Pricing</strong>
                 <p className="diff-desc">
-                  We believe in clear and honest communication with our users and clients, with no hidden terms or confusing fine print.
+                  We aim to provide professional technology solutions at competitive prices without unnecessarily increasing the customer's investment.
                 </p>
               </div>
             </div>
@@ -296,9 +285,9 @@ export const AboutPage: React.FC = () => {
             <div className="about-diff-item">
               <span className="diff-bullet-diamond">◆</span>
               <div>
-                <strong className="diff-name">Practical Solutions:</strong>
+                <strong className="diff-name">Timely Delivery</strong>
                 <p className="diff-desc">
-                  We build software and technology that solve practical everyday problems, rather than creating technology for technology's sake.
+                  We respect the deadlines agreed with our customers and work toward delivering the required product or service within the committed time frame.
                 </p>
               </div>
             </div>
@@ -306,9 +295,9 @@ export const AboutPage: React.FC = () => {
             <div className="about-diff-item">
               <span className="diff-bullet-diamond">◆</span>
               <div>
-                <strong className="diff-name">Custom-Engineered Architecture:</strong>
+                <strong className="diff-name">We Don't Disappear After Delivery</strong>
                 <p className="diff-desc">
-                  We don't rely solely on off-the-shelf templates; our solutions are planned and designed around the actual requirements of the user or project.
+                  Project completion is not the end of our relationship. After delivery, COBRA follows up with the customer regularly for one month to ensure that the delivered solution remains stable and continues to meet the agreed requirements.
                 </p>
               </div>
             </div>
@@ -316,9 +305,9 @@ export const AboutPage: React.FC = () => {
             <div className="about-diff-item">
               <span className="diff-bullet-diamond">◆</span>
               <div>
-                <strong className="diff-name">End-to-End Capabilities:</strong>
+                <strong className="diff-name">Flexible Maintenance</strong>
                 <p className="diff-desc">
-                  From initial concept and architectural planning to development, deployment, and ongoing maintenance, we handle the full development lifecycle.
+                  Customers can choose maintenance support according to their requirements through Monthly, Quarterly, or Yearly maintenance plans.
                 </p>
               </div>
             </div>
@@ -326,9 +315,9 @@ export const AboutPage: React.FC = () => {
             <div className="about-diff-item">
               <span className="diff-bullet-diamond">◆</span>
               <div>
-                <strong className="diff-name">Standards-Based Reliability:</strong>
+                <strong className="diff-name">Doorstep Demonstration</strong>
                 <p className="diff-desc">
-                  Our development and design practices adhere to recognized industry standards, ensuring high quality, performance, and maintainability.
+                  Where applicable, COBRA provides product and service demonstrations at the customer's location, helping customers understand the solution before making a decision.
                 </p>
               </div>
             </div>
@@ -336,9 +325,9 @@ export const AboutPage: React.FC = () => {
             <div className="about-diff-item">
               <span className="diff-bullet-diamond">◆</span>
               <div>
-                <strong className="diff-name">Professional Experience:</strong>
+                <strong className="diff-name">Solutions Built Around You</strong>
                 <p className="diff-desc">
-                  Our team brings experience across software development, digital platforms, security engineering, and enterprise IT solutions.
+                  We don't believe every customer needs the same solution. We first understand the requirement, then design the technology around the actual need.
                 </p>
               </div>
             </div>
@@ -346,9 +335,9 @@ export const AboutPage: React.FC = () => {
             <div className="about-diff-item">
               <span className="diff-bullet-diamond">◆</span>
               <div>
-                <strong className="diff-name">Client-Focused Commitment:</strong>
+                <strong className="diff-name">Long-Term Relationship</strong>
                 <p className="diff-desc">
-                  We are dedicated to building long-term relationships with our clients, providing reliable ongoing support and guidance as their needs evolve.
+                  We aim to build relationships, not merely complete projects. Our goal is to remain a dependable technology partner as our customers grow.
                 </p>
               </div>
             </div>
@@ -362,27 +351,21 @@ export const AboutPage: React.FC = () => {
           </h3>
 
           <div className="about-project-grid">
-            {/* Left Column: Project Document Illustration */}
             <div className="about-project-ill-col">
               <svg width="150" height="150" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Document Sheet */}
                 <path
                   d="M30 15C30 9.47715 34.4772 5 40 5H100L130 35V135C130 140.523 125.523 145 120 145H40C34.4772 145 30 140.523 30 135V15Z"
                   fill="#022A48"
                 />
-                {/* Folded Corner */}
                 <path d="M100 5V35H130L100 5Z" fill="#ED3237" />
-                {/* Banner with PROJECT text */}
                 <rect x="42" y="44" width="76" height="24" rx="3" fill="#FFFFFF" />
                 <text x="80" y="60" textAnchor="middle" fill="#022A48" fontSize="12" fontWeight="800" fontFamily="'Outfit', sans-serif">
                   PROJECT
                 </text>
-                {/* Document Lines */}
                 <line x1="44" y1="80" x2="116" y2="80" stroke="#FFFFFF" strokeWidth="3" strokeLinecap="round" />
                 <line x1="44" y1="92" x2="116" y2="92" stroke="#FFFFFF" strokeWidth="3" strokeLinecap="round" />
                 <line x1="44" y1="104" x2="90" y2="104" stroke="#FFFFFF" strokeWidth="3" strokeLinecap="round" />
 
-                {/* Overlapping Red Gear / Badge */}
                 <circle cx="120" cy="125" r="24" fill="#ED3237" stroke="#FFFFFF" strokeWidth="3" />
                 <path
                   d="M120 115V119M120 131V135M110 125H114M126 125H130M113 118L116 121M124 129L127 132M113 132L116 129M124 121L127 118"
@@ -394,22 +377,24 @@ export const AboutPage: React.FC = () => {
               </svg>
             </div>
 
-            {/* Right Column: Project Text */}
             <div className="about-project-text-col">
               <p className="about-project-para">
-                Every project we take on at <strong>COBRA</strong> receives our full attention, expertise, and commitment. Whether you need a custom application, a modern website, or specialized security architecture, we work closely with you to understand your requirements and deliver a solution that fits your exact needs.
+                When a customer gives COBRA an opportunity, we understand that they are placing their requirements, expectations, time, and investment in our hands.
               </p>
-              <div className="about-project-subhead">
-                We approach every project with:
+              <p className="about-project-para">
+                That responsibility matters to us.
+              </p>
+              <p className="about-project-para">
+                We therefore focus on understanding the requirement clearly, developing the solution professionally, maintaining appropriate security practices, delivering within the agreed timeline, and continuing to support the customer after delivery.
+              </p>
+              <div className="about-project-objective-box">
+                <p className="about-project-quote">
+                  Our objective is not simply to say: <em>"The project is completed."</em>
+                </p>
+                <p className="about-project-quote" style={{ marginTop: '8px', color: 'var(--color-navy)', fontWeight: 700 }}>
+                  Our objective is to make sure: <span className="text-red">"The project is working, the customer is satisfied, and the solution continues to serve its purpose."</span>
+                </p>
               </div>
-              <ul className="about-project-points">
-                <li>• <strong>Attention to Detail</strong> — Understanding the specifics of your operational requirements and user needs.</li>
-                <li>• <strong>Professional Engineering</strong> — Applying proven software architecture and development standards.</li>
-                <li>• <strong>Commitment to Delivery</strong> — Delivering high-quality solutions on time and within agreed specifications.</li>
-              </ul>
-              <p className="about-project-para" style={{ marginTop: '16px', fontWeight: 600 }}>
-                Our goal is to be a technology partner you can depend on — today, tomorrow, and as your technology requirements continue to evolve.
-              </p>
             </div>
           </div>
         </div>
@@ -421,13 +406,13 @@ export const AboutPage: React.FC = () => {
               BE PART <span className="text-red">OF WHAT WE BUILD NEXT</span>
             </h3>
             <p className="about-build-next-para">
-              Whether you are looking for custom software development, mobile application design, a modern and responsive website, or specialized security architecture, COBRA is ready to help you bring your ideas to life with clarity, security, and professional engineering.
+              COBRA warmly welcomes investors, business partners, and strategic collaborators who believe in the potential of technology, cyber security, and innovative digital products. Investment opportunities may be considered across our products, services, technology initiatives, and the growth of COBRA itself, subject to applicable business and legal requirements.
             </p>
             <p className="about-build-next-para">
-              We believe the best technology is built through collaboration. We take the time to understand your vision, your workflow, and your requirements before writing a single line of code.
+              We believe investors deserve clarity and confidence. Therefore, we are committed to maintaining appropriate legal, regulatory, financial, and business formalities in accordance with applicable laws and requirements.
             </p>
             <p className="about-build-next-para">
-              If you have a project in mind, want to explore custom software development, or would like to learn more about our Cyber Vault security architecture, our team is always ready to have a conversation.
+              If you are interested in COBRA, our products, services, or future plans, we are always willing to explain our business model, product vision, technology, service structure, growth plans, and investment opportunities clearly.
             </p>
           </div>
 
@@ -446,3 +431,5 @@ export const AboutPage: React.FC = () => {
     </div>
   );
 };
+
+export default AboutPage;

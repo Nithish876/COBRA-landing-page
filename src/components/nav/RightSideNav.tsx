@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   HomeNavIcon,
   UndoNavIcon,
@@ -9,6 +9,8 @@ import {
   InfoNavIcon,
   ContactNavIcon,
 } from '../icons/NavIcons';
+import { useNavStore } from '../../stores/useNavStore';
+import type { PageType } from '../../types';
 
 interface NavButtonProps {
   id: string;
@@ -22,7 +24,7 @@ const NavButton: React.FC<NavButtonProps> = ({ id, label, icon, onClick, isActiv
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+    <div className="smart-key-nav-item" style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
       {/* Tooltip with Right-to-Left Reveal Animation */}
       {isHovered && (
         <div className="nav-tooltip-container" role="tooltip">
@@ -38,22 +40,22 @@ const NavButton: React.FC<NavButtonProps> = ({ id, label, icon, onClick, isActiv
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         aria-label={label}
+        className={`smart-key-nav-btn ${isActive ? 'is-active' : ''}`}
         style={{
-          background: 'none',
-          backgroundColor: 'transparent',
+          background: isActive ? 'rgba(2, 42, 72, 0.08)' : 'transparent',
           border: 'none',
-          borderRadius: 0,
+          borderRadius: '12px',
           boxShadow: 'none',
           outline: 'none',
-          padding: '2px',
+          padding: 'clamp(5px, 0.5vw, 8px)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           cursor: 'pointer',
           position: 'relative',
-          opacity: isActive ? 1 : isHovered ? 0.95 : 0.72,
-          transform: isHovered ? 'scale(1.12)' : isActive ? 'scale(1.06)' : 'scale(1)',
-          transition: 'transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease',
+          opacity: isActive ? 1 : isHovered ? 0.95 : 0.75,
+          transform: isHovered ? 'scale(1.15)' : isActive ? 'scale(1.08)' : 'scale(1)',
+          transition: 'transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease, background-color 0.2s ease',
         }}
       >
         {icon}
@@ -63,136 +65,92 @@ const NavButton: React.FC<NavButtonProps> = ({ id, label, icon, onClick, isActiv
 };
 
 export const RightSideNav: React.FC = () => {
-  const [activeSection, setActiveSection] = useState<string>('home');
-  const [scrollHistory, setScrollHistory] = useState<string[]>(['home']);
+  const currentPage = useNavStore((state) => state.currentPage);
+  const setCurrentPage = useNavStore((state) => state.setCurrentPage);
+  const goBack = useNavStore((state) => state.goBack);
 
-  const scrollToSection = (sectionId: string) => {
-    const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(sectionId);
-      setScrollHistory((prev) => [...prev, sectionId]);
-    }
+  const navigateTo = (page: PageType) => {
+    setCurrentPage(page);
+    window.location.hash = page;
   };
-
-  const handleBack = () => {
-    if (scrollHistory.length > 1) {
-      const nextHistory = [...scrollHistory];
-      nextHistory.pop(); // remove current
-      const prevSection = nextHistory[nextHistory.length - 1] || 'home';
-      setScrollHistory(nextHistory);
-      const el = document.getElementById(prevSection);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-        setActiveSection(prevSection);
-      }
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      setActiveSection('home');
-    }
-  };
-
-  // Observe which section is currently centered in viewport
-  useEffect(() => {
-    const sectionIds = ['home', 'services', 'products', 'modules', 'security', 'privacy', 'about', 'contact'];
-    
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 3;
-      
-      for (let i = sectionIds.length - 1; i >= 0; i--) {
-        const id = sectionIds[i];
-        const el = document.getElementById(id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          const top = rect.top + window.scrollY;
-          if (scrollPosition >= top - 120) {
-            setActiveSection(id);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
-    <nav className="right-nav-rail" aria-label="Page Sections Navigation">
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px' }}>
+    <nav className="right-nav-rail smart-key-rail" aria-label="Smart Key Navigation">
+      <div className="smart-key-rail-inner" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'clamp(4px, 0.5vh, 10px)' }}>
         {/* 1. Home */}
         <NavButton
           id="home"
           label="Home"
-          icon={<HomeNavIcon size={30} />}
-          isActive={activeSection === 'home'}
-          onClick={() => scrollToSection('home')}
+          icon={<HomeNavIcon />}
+          isActive={currentPage === 'home'}
+          onClick={() => navigateTo('home')}
         />
 
         {/* 2. Back / Previous */}
         <NavButton
           id="undo"
           label="Back / Previous"
-          icon={<UndoNavIcon size={30} />}
+          icon={<UndoNavIcon />}
           isActive={false}
-          onClick={handleBack}
+          onClick={goBack}
         />
 
         {/* 3. Services */}
         <NavButton
           id="services"
           label="Services"
-          icon={<ServicesNavIcon size={30} />}
-          isActive={activeSection === 'services'}
-          onClick={() => scrollToSection('services')}
+          icon={<ServicesNavIcon />}
+          isActive={currentPage === 'services'}
+          onClick={() => navigateTo('services')}
         />
 
         {/* 4. Products */}
         <NavButton
           id="products"
           label="Products"
-          icon={<PackageNavIcon size={30} />}
-          isActive={activeSection === 'products' || activeSection === 'modules'}
-          onClick={() => scrollToSection('products')}
+          icon={<PackageNavIcon />}
+          isActive={currentPage === 'products' || currentPage === 'modules'}
+          onClick={() => navigateTo('products')}
         />
 
         {/* 5. Cyber Vault Security */}
         <NavButton
           id="shield"
           label="Cyber Vault Security"
-          icon={<ShieldLockNavIcon size={30} />}
-          isActive={activeSection === 'security'}
-          onClick={() => scrollToSection('security')}
+          icon={<ShieldLockNavIcon />}
+          isActive={currentPage === 'security'}
+          onClick={() => navigateTo('security')}
         />
 
         {/* 6. Zero-Knowledge Trust & Privacy */}
         <NavButton
           id="trust"
           label="Trust & Privacy"
-          icon={<TrustBadgeNavIcon size={30} />}
-          isActive={activeSection === 'privacy'}
-          onClick={() => scrollToSection('privacy')}
+          icon={<TrustBadgeNavIcon />}
+          isActive={currentPage === 'privacy'}
+          onClick={() => navigateTo('privacy')}
         />
 
         {/* 7. About COBRA */}
         <NavButton
           id="info"
           label="About COBRA"
-          icon={<InfoNavIcon size={30} />}
-          isActive={activeSection === 'about'}
-          onClick={() => scrollToSection('about')}
+          icon={<InfoNavIcon />}
+          isActive={currentPage === 'about'}
+          onClick={() => navigateTo('about')}
         />
 
         {/* 8. Contact Us */}
         <NavButton
           id="contact"
           label="Contact & Support"
-          icon={<ContactNavIcon size={30} />}
-          isActive={activeSection === 'contact'}
-          onClick={() => scrollToSection('contact')}
+          icon={<ContactNavIcon />}
+          isActive={currentPage === 'contact'}
+          onClick={() => navigateTo('contact')}
         />
       </div>
     </nav>
   );
 };
+
+export default RightSideNav;

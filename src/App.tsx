@@ -8,51 +8,65 @@ import { PrivacyPage } from './pages/PrivacyPage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { useThemeStore } from './stores/useThemeStore';
+import { useNavStore } from './stores/useNavStore';
+import type { PageType } from './types';
 
 export const App: React.FC = () => {
   const initThemeListener = useThemeStore((state) => state.initThemeListener);
+  const currentPage = useNavStore((state) => state.currentPage);
+  const setCurrentPage = useNavStore((state) => state.setCurrentPage);
 
   useEffect(() => {
     const cleanup = initThemeListener();
     return cleanup;
   }, [initThemeListener]);
 
+  // Sync with URL hash on initial load and on hashchange
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.replace('#', '') as PageType;
+      const validPages: PageType[] = ['home', 'services', 'products', 'security', 'privacy', 'about', 'contact'];
+      if (validPages.includes(hash) && hash !== currentPage) {
+        setCurrentPage(hash);
+      }
+    };
+
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, [setCurrentPage, currentPage]);
+
+  // Render the current page separately
+  const renderCurrentPage = () => {
+    switch (currentPage) {
+      case 'services':
+        return <ServicesPage />;
+      case 'products':
+      case 'modules':
+        return <ProductsPage />;
+      case 'security':
+        return <SecuritySection />;
+      case 'privacy':
+        return <PrivacyPage />;
+      case 'about':
+        return <AboutPage />;
+      case 'contact':
+        return <ContactPage />;
+      case 'home':
+      default:
+        return (
+          <section id="home" className="page-section hero-section-wrapper">
+            <HeroSection />
+          </section>
+        );
+    }
+  };
+
   return (
     <Layout>
-      {/* 1. Hero / Home Section */}
-      <section id="home" className="page-section hero-section-wrapper">
-        <HeroSection />
-      </section>
-
-      {/* 2. Services Section */}
-      <section id="services" className="page-section">
-        <ServicesPage />
-      </section>
-
-      {/* 3. Products Section */}
-      <section id="products" className="page-section">
-        <ProductsPage />
-      </section>
-
-      {/* 4. Cyber Vault Security Section */}
-      <section id="security" className="page-section">
-        <SecuritySection />
-      </section>
-
-      {/* 5. Zero-Knowledge Trust & Privacy Section */}
-      <section id="privacy" className="page-section">
-        <PrivacyPage />
-      </section>
-
-      {/* 6. About COBRA Section */}
-      <section id="about" className="page-section">
-        <AboutPage />
-      </section>
-
-      {/* 7. Contact Us Section with MapView & Form */}
-      <section id="contact" className="page-section">
-        <ContactPage />
-      </section>
+      <div key={currentPage} className="single-page-container fade-in-page">
+        {renderCurrentPage()}
+      </div>
     </Layout>
   );
 };

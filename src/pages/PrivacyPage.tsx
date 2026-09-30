@@ -27,16 +27,29 @@ export const PrivacyPage: React.FC = () => {
             PRIVACY IS NOT A FEATURE. <span className="text-red">IT IS OUR RESPONSIBILITY.</span>
           </h2>
           <p className="privacy-foundation-text">
-            Privacy is often treated as an after-thought, an optional feature, or a legal policy. At <strong>COBRA</strong>, we believe privacy should be an essential principle that guides how we design, build, and deploy technology. Our technology is built with respect for user privacy, ensuring that individuals retain control over their personal information and how it is handled. At COBRA, we focus on privacy by design, which means privacy considerations are embedded into our development process from the very beginning, rather than treated as an afterthought.
+            Privacy is the responsible collection, use, storage and handling of information entrusted to a technology company. In the IT industry, privacy means understanding what information is required, why it is required, how it is processed, who can access it, and how long it should be retained. At <strong>COBRA</strong>, we believe privacy should be built into technology from the beginning — not added after a product is completed. Our approach is based on data minimization, purpose-based processing, controlled access, confidentiality and user awareness.
           </p>
-          <p className="privacy-foundation-highlight">
-            Our goal is to build technology that gives users a reason to trust us. Because at COBRA, privacy is not merely a policy — it is a responsibility we build into our technology.
+          <p className="privacy-foundation-text" style={{ marginTop: '14px' }}>
+            We aim to collect only the information necessary to provide our products and services, use it only for legitimate purposes, and provide users with clear control and understanding of how their information is handled.
           </p>
         </div>
 
-        {/* 2. Circular Infographic: Approach to Data Privacy */}
-        <div className="privacy-diagram-section">
-          <PrivacyApproachDiagram />
+        {/* 2. Circular Infographic & Approach Text: Our Approach to Data Privacy */}
+        <div className="privacy-approach-section-card">
+          <h3 className="privacy-approach-heading">
+            OUR APPROACH <span className="text-red">TO DATA PRIVACY</span>
+          </h3>
+
+          <div className="privacy-diagram-section">
+            <PrivacyApproachDiagram />
+          </div>
+
+          <p className="privacy-approach-narrative">
+            COBRA treats privacy as a fundamental responsibility across our products, services and internal technology practices. We design our systems with privacy in mind and carefully consider what information is collected, where it is processed, why it is needed and who should have access to it. We avoid unnecessary collection of personal information and aim to keep data handling limited to its intended purpose. Our privacy practices are supported by controlled access, data minimization, secure processing, responsible retention and transparent communication. Where user information is required to operate a service, we work to ensure that it is handled appropriately and protected against unauthorized access or misuse.
+          </p>
+          <div className="privacy-approach-quote-box">
+            Privacy is not simply about keeping information hidden. It is about giving information the right purpose, the right protection and the right level of control.
+          </div>
         </div>
 
         {/* 3. Section Heading Divider */}
@@ -47,56 +60,56 @@ export const PrivacyPage: React.FC = () => {
         {/* 4. White Card: Why Users Can Trust COBRA (Detailed Policy Principles) */}
         <div className="privacy-principles-card">
           <p className="privacy-principles-intro">
-            COBRA follows transparent and responsible data practices. We want our users to know how their data is handled and what measures are in place to protect it. Here are some key ways we protect user privacy:
+            COBRA builds privacy into the foundation of its technology. Our products and services are designed with multiple privacy considerations rather than depending on a single protection mechanism.
           </p>
 
           <div className="privacy-principles-list">
             <div className="privacy-principle-item">
-              <strong className="principle-title">Data Minimization:</strong>
+              <strong className="principle-title">Data Minimization</strong>
               <p className="principle-desc">
-                We only collect the personal data that is necessary for the service to function, and we do not collect excessive or unnecessary data.
+                We aim to collect and process only the information necessary for the intended product or service.
               </p>
             </div>
 
             <div className="privacy-principle-item">
-              <strong className="principle-title">Purpose Limitation:</strong>
+              <strong className="principle-title">Purpose Limitation</strong>
               <p className="principle-desc">
-                Personal data is used only for the purpose for which it was originally collected, and is not repurposed or shared for unrelated reasons without explicit user consent.
+                Information provided for one purpose should not automatically become available for unrelated purposes. Data handling is designed around its intended use.
               </p>
             </div>
 
             <div className="privacy-principle-item">
-              <strong className="principle-title">Access Control:</strong>
+              <strong className="principle-title">Access Control</strong>
               <p className="principle-desc">
-                Access to personal data is restricted to authorized personnel who have a legitimate business need, and security controls are in place to prevent unauthorized access or disclosure.
+                Access to information is restricted according to authorization and operational requirements. Not every system, process or person needs access to every piece of information.
               </p>
             </div>
 
             <div className="privacy-principle-item">
-              <strong className="principle-title">Data Protection:</strong>
+              <strong className="principle-title">Data Protection</strong>
               <p className="principle-desc">
-                All stored and transmitted data is protected using appropriate encryption and security measures to prevent unauthorized access, alteration, or loss.
+                Where sensitive information is handled, appropriate technical safeguards are applied to help prevent unauthorized access, alteration, disclosure or loss.
               </p>
             </div>
 
             <div className="privacy-principle-item">
-              <strong className="principle-title">User Control:</strong>
+              <strong className="principle-title">User Control</strong>
               <p className="principle-desc">
-                Users have control over their personal data, including the right to access, correct, or delete their information, and can manage their privacy preferences within our products.
+                We believe users should understand what information they provide and why it is required. Wherever applicable, users are given appropriate choices and controls over their information.
               </p>
             </div>
 
             <div className="privacy-principle-item">
-              <strong className="principle-title">Privacy In Our Products:</strong>
+              <strong className="principle-title">Privacy in Our Products</strong>
               <p className="principle-desc">
-                COBRA products are designed with user privacy in mind from the ground up, with built-in features that protect user data and prevent unnecessary data collection.
+                COBRA products are designed with privacy considerations at the product level — from data collection and processing to storage, access and deletion.
               </p>
             </div>
 
             <div className="privacy-principle-item">
-              <strong className="principle-title">Privacy In Our Services:</strong>
+              <strong className="principle-title">Privacy in Our Services</strong>
               <p className="principle-desc">
-                Our consulting, development, and professional services also adhere to strict privacy guidelines, ensuring that client data is handled with the utmost care and confidentiality.
+                Our people, processes and technology are expected to follow responsible information-handling practices. Privacy is therefore not limited to software; it extends to the way COBRA delivers its services and works with customer information.
               </p>
             </div>
           </div>
@@ -115,7 +128,7 @@ export const PrivacyPage: React.FC = () => {
         <div className="privacy-cyber-vault-grid">
           {/* Left Column: Cyber Vault Card */}
           <div className="privacy-vault-card-col">
-            <div className="hero-center-column" style={{ width: '100%', maxWidth: '320px' }}>
+            <div className="hero-center-column" style={{ width: '100%', maxWidth: 'clamp(280px, 24vw, 380px)' }}>
               <img
                 src={cobraCyberVaultLogo}
                 alt="COBRA Cyber Vault"
@@ -130,16 +143,16 @@ export const PrivacyPage: React.FC = () => {
             <div className="security-navy-card" style={{ height: '100%' }}>
               <div className="security-navy-content" style={{ padding: '36px 32px' }}>
                 <p className="security-navy-intro" style={{ marginBottom: '16px' }}>
-                  <strong>COBRA Cyber Vault</strong> is the culmination of our approach to privacy and security. Built from the ground up to provide users with a secure and private digital experience, Cyber Vault utilizes advanced zero-knowledge encryption protocols to ensure that only the user can access their data. With Cyber Vault, users can store sensitive information, documents, and credentials with complete confidence.
+                  <strong>COBRA Cyber Vault</strong> represents our approach to protecting the most sensitive information within the COBRA technology ecosystem. It is designed around a layered protection philosophy where sensitive information is not treated as ordinary data. Protection is considered across the entire information lifecycle — from collection and processing to storage, access and eventual removal.
                 </p>
                 <p className="security-navy-intro">
-                  With Cyber Vault, users can store, organize, and manage sensitive personal and business information without fear of unauthorized access or data exposure. The zero-knowledge architecture means that even COBRA servers cannot view or access your stored data, giving users true data sovereignty. Whether you are an individual looking to secure personal credentials or an enterprise managing sensitive data, Cyber Vault provides the tools and security you need.
+                  The Cyber Vault concept combines controlled access, strong authentication, encryption where appropriate, restricted data exposure, secure processing practices and monitoring-oriented controls to create multiple barriers against unauthorized access. Rather than relying on a single security mechanism, COBRA follows a defence-in-depth approach: if one layer is challenged, additional layers remain in place to provide further protection.
                 </p>
               </div>
 
               {/* Red Bottom Banner */}
               <div className="security-navy-banner-red">
-                Sensitive information is protected, giving users peace of mind and complete control over the appropriate level of privacy.
+                Keep sensitive information protected, limit unnecessary exposure, and give authorized users the appropriate level of access.
               </div>
             </div>
           </div>
@@ -162,26 +175,26 @@ export const PrivacyPage: React.FC = () => {
             TRUST IS EARNED THROUGH <span className="text-red">RESPONSIBLE TECHNOLOGY, TRANSPARENCY AND CONSISTENT PRACTICES</span> — NOT THROUGH PROMISES ALONE.
           </h3>
           <p className="privacy-trust-intro">
-            At <strong>COBRA</strong>, we believe that trust is earned, not given. We are committed to demonstrating our trustworthiness through open and transparent practices, responsible data management, and a culture of accountability in everything we build and do.
+            At <strong>COBRA</strong>, we believe your information should never be treated as something that simply belongs inside a database. It represents your identity, your work, your personal information and, in many cases, information that matters deeply to you.
           </p>
 
           <div className="trust-commitments-block">
             <div className="trust-subheading" style={{ marginBottom: '14px' }}>
-              We believe users should know who has access to their data and under what circumstances:
+              That is why we follow a privacy-first approach across our products and services. We work to:
             </div>
             <ul className="trust-bullet-points">
-              <li>• We never sell personal data to third parties.</li>
-              <li>• We do not use personal data for advertising or marketing without explicit consent.</li>
-              <li>• We do not track users across websites or across third-party services.</li>
-              <li>• Security is treated as a priority at every stage of development, testing, and deployment.</li>
-              <li>• We conduct regular security assessments, audits, and code reviews to identify and fix vulnerabilities.</li>
-              <li>• Data is encrypted at rest and in transit using robust, industry-standard cryptographic algorithms.</li>
-              <li>• Users retain ownership and control over their personal data at all times.</li>
-              <li>• Our privacy policy is written in clear, understandable language, without convoluted legalese.</li>
+              <li>• Collect information responsibly and avoid unnecessary data collection.</li>
+              <li>• Use information for its intended and legitimate purposes.</li>
+              <li>• Restrict access to authorized systems and users.</li>
+              <li>• Apply appropriate protection to sensitive information.</li>
+              <li>• Build privacy considerations into our products from the beginning.</li>
+              <li>• Minimize unnecessary exposure of user information.</li>
+              <li>• Communicate clearly about how information is handled.</li>
+              <li>• Continuously improve our privacy and protection practices as our technology evolves.</li>
             </ul>
 
             <p className="trust-subtext" style={{ marginTop: '20px', fontWeight: 600 }}>
-              Our commitment to user privacy and trust is ongoing, not a one-time gesture.
+              Our commitment is not to ask users to trust COBRA blindly.
             </p>
           </div>
         </div>
@@ -203,3 +216,5 @@ export const PrivacyPage: React.FC = () => {
     </div>
   );
 };
+
+export default PrivacyPage;

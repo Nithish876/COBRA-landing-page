@@ -24,7 +24,7 @@ export interface SocialLink {
   color: string;
 }
 
-export type PageType = 'home' | 'services' | 'about' | 'privacy' | 'modules' | 'products' | 'contact' | 'settings';
+export type PageType = 'home' | 'services' | 'about' | 'privacy' | 'modules' | 'products' | 'contact' | 'settings' | 'security';
 
 export type ActiveModal = 'settings' | 'explore' | 'contact' | 'info' | 'features' | 'services' | null;
 

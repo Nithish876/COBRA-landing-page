@@ -1,25 +1,16 @@
-/* Responsive Design System */
+/* Responsive Design System - Dynamic Stretch & Fluid Typography */
 
 @media (max-width: 1200px) {
   .hero-grid {
-    gap: 32px;
+    gap: clamp(20px, 3vw, 36px);
   }
 
-  .site-header {
-    padding: 0 28px;
+  .site-header-attached {
+    padding: 0 clamp(16px, 3vw, 36px);
   }
 
-  .site-footer {
-    padding: 0 28px;
-    box-shadow: rgba(0, 0, 0, 0.146) 4px 4px 8px;
-  }
-
-  .hero-main {
-    padding: var(--header-height) 80px var(--footer-height) 28px;
-  }
-
-  .page-main-content {
-    padding: calc(var(--header-height) + 24px) 80px calc(var(--footer-height) + 36px) 28px;
+  .site-footer-attached {
+    padding: 0 clamp(16px, 3vw, 36px);
   }
 }
 
@@ -27,7 +18,7 @@
   .hero-grid {
     grid-template-columns: 1fr !important;
     text-align: center;
-    gap: 36px;
+    gap: 32px;
     padding-top: 10px;
     padding-bottom: 24px;
     width: 100%;
@@ -63,160 +54,116 @@
     align-items: center;
   }
 
-  .hero-main {
-    padding: calc(var(--header-height) + 20px) 76px calc(var(--footer-height) + 36px) 20px;
-    height: auto;
-    min-height: calc(100vh - var(--header-height) - var(--footer-height));
-    overflow-x: hidden;
+  .about-mission-vision-grid,
+  .security-two-cards-grid,
+  .privacy-cyber-vault-grid,
+  .about-customer-reach-block,
+  .about-security-card-grid,
+  .about-project-grid,
+  .contact-columns-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
   }
 
-  .page-main-content {
-    padding: calc(var(--header-height) + 20px) 76px calc(var(--footer-height) + 36px) 20px;
-    overflow-x: hidden;
+  .about-circle-logo-badge {
+    margin: 0 auto;
   }
 
+  .security-trust-columns {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .right-nav-rail.smart-key-rail,
   .right-nav-rail {
-    right: 10px;
-    gap: 6px;
-    padding: 10px 6px;
-    border-radius: 24px;
+    right: 8px;
+    padding: 8px 4px;
+    border-radius: 20px;
+  }
+
+  .smart-key-nav-icon {
+    width: clamp(28px, 3.5vw, 36px);
+    height: clamp(28px, 3.5vw, 36px);
+  }
+
+  .smart-key-nav-btn {
+    min-width: 36px;
+    min-height: 36px;
   }
 }
 
 @media (max-width: 640px) {
-  .site-header {
+  .site-header-attached {
     padding: 0 14px;
-    height: 64px;
+    height: var(--header-height);
   }
 
-  .site-header img {
-    max-height: 44px;
-    width: auto;
+  .header-logo-best {
+    height: clamp(38px, 6vh, 48px);
   }
 
-  .site-footer {
-    padding: 12px 14px;
+  .header-logo-cobra {
+    height: clamp(32px, 5vh, 42px);
+  }
+
+  .site-footer-attached {
+    padding: 8px 14px;
     flex-direction: column;
-    
     height: auto;
-    gap: 8px;
+    gap: 6px;
     text-align: center;
   }
 
-  .footer-copyright {
-    font-size: 11px;
+  .footer-copyright-text {
+    font-size: 11.5px;
   }
 
+  .footer-follow-label {
+    font-size: 12px;
+  }
+
+  .footer-social-icons img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .right-nav-rail.smart-key-rail,
   .right-nav-rail {
-    position: fixed;
-    right: 6px;
-    top: 50%;
-    transform: translateY(-50%);
-    gap: 6px;
-    padding: 8px 4px;
-    border-radius: 22px;
-    box-shadow: 0 6px 24px rgba(2, 42, 72, 0.18), 0 0 12px rgba(0, 0, 0, 0.06);
-    background-color: var(--bg-card);
-    backdrop-filter: blur(12px);
+    right: 4px;
+    padding: 6px 3px;
+    border-radius: 16px;
   }
 
-  [data-theme='dark'] .right-nav-rail {
-    background-color: rgba(2, 42, 72, 0.92);
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.6), 0 0 16px rgba(255, 255, 255, 0.08);
+  .smart-key-nav-icon {
+    width: 26px;
+    height: 26px;
   }
 
-  .hero-main {
-    padding: calc(var(--header-height) + 12px) 64px calc(var(--footer-height) + 28px) 14px;
-    overflow-x: hidden;
-    width: 100%;
-  }
-
-  .page-main-content {
-    padding: calc(var(--header-height) + 12px) 64px calc(var(--footer-height) + 28px) 14px;
-    overflow-x: hidden;
-    width: 100%;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr !important;
-    gap: 24px;
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
+  .smart-key-nav-btn {
+    min-width: 32px;
+    min-height: 32px;
+    padding: 3px;
   }
 
   .hero-statement {
-    font-size: clamp(18px, 5.2vw, 26px) !important;
+    font-size: clamp(20px, 5.5vw, 28px) !important;
     line-height: 1.35 !important;
-    word-break: normal !important;
-    overflow-wrap: break-word !important;
   }
 
   .headline-uncompromised {
-    font-size: clamp(20px, 6.2vw, 32px) !important;
-    letter-spacing: 0.03em !important;
-    word-break: break-word !important;
-    line-height: 1.15 !important;
+    font-size: clamp(22px, 6.2vw, 34px) !important;
   }
 
   .headline-security {
-    font-size: clamp(24px, 7.2vw, 38px) !important;
-    letter-spacing: 0.03em !important;
-    margin-bottom: 16px !important;
-    line-height: 1.15 !important;
+    font-size: clamp(26px, 7.2vw, 40px) !important;
   }
 
-  .tagline-group {
-    gap: 8px;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-
-  .tagline-item {
-    font-size: 11.5px;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 6px;
-  }
-
-  .btn-explore {
-    padding: 12px 28px;
-    font-size: 13.5px;
-    width: 100%;
-    max-width: 220px;
-  }
-
-  .vault-card-container {
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .vault-card-container svg,
-  .hero-center-column img {
-    width: min(260px, 66vw) !important;
-    height: auto !important;
-    max-width: 100%;
-  }
-}
-
-/* Theme & Settings Page Responsive Enhancements */
-.theme-page-container {
-  width: 100%;
-  max-width: 880px;
-  margin: 0 auto;
-}
-
-@media (max-width: 640px) {
-  .settings-card {
-    padding: 16px !important;
-    border-radius: 14px !important;
-  }
-}
-
-@media (max-width: 400px) {
-  .settings-card {
-    padding: 14px 12px !important;
+  .about-page-wrapper,
+  .privacy-page-wrapper,
+  .security-page-wrapper,
+  .services-page-wrapper,
+  .products-page-wrapper,
+  .contact-section-container {
+    padding: 16px 12px 24px 12px !important;
   }
 }

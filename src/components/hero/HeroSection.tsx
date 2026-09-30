@@ -13,13 +13,6 @@ export const HeroSection: React.FC = () => {
             src={cobraCyberVaultLogo}
             alt="COBRA Cyber Vault"
             className="hero-vault-logo"
-            style={{
-              // width: 'clamp(240px, 28vw, 380px)',
-              
-              maxWidth: '250px',
-              height: 'auto',
-              display: 'block',
-            }}
           />
         </div>
         <SecurityPitch />

@@ -324,12 +324,19 @@ const serviceCardPreviews = [
 ];
 
 export const ServicesPage: React.FC = () => {
-  const [selectedService, setSelectedService] = useState<ServiceDetail | null>(null);
+  const [currentServiceIndex, setCurrentServiceIndex] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = (serviceIndex: number) => {
-    setSelectedService(fullServicesData[serviceIndex]);
+    setCurrentServiceIndex(serviceIndex);
     setIsModalOpen(true);
+  };
+
+  const handleNextService = () => {
+    if (currentServiceIndex !== null) {
+      const nextIndex = (currentServiceIndex + 1) % fullServicesData.length;
+      setCurrentServiceIndex(nextIndex);
+    }
   };
 
   const handleCloseModal = () => {
@@ -459,7 +466,8 @@ export const ServicesPage: React.FC = () => {
       <ServiceDetailModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
-        service={selectedService}
+        service={currentServiceIndex !== null ? fullServicesData[currentServiceIndex] : null}
+        onNext={handleNextService}
       />
     </div>
   );
